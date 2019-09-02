@@ -1,0 +1,22 @@
+<html ng-app="bookYourSeatApp">
+<head>
+<title>Ticket booking</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+<link href="styles.css" rel="stylesheet"/>
+<script type="text/javascript" src="app2.js"></script>
+</head>
+<div ng-controller="mainCtrl as ctrl">
+      <label>Persons <select ng-model="ctrl.selectedCount" ng-change="ctrl.seats.setAvailCount(ctrl.selectedCount)" ng-options="count as count.val for count in ctrl.selectionCount"></select></label>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	   Seats left: {{ctrl.seats.availCount.val}} <br/><br/>
+      <table ng-repeat="(key, rang) in ctrl.seats.map">
+          <tr ng-repeat="row in rang.seats">
+              <td ng-repeat="seat in row" ng-class="{'active': seat.checked, 'booked': seat.booked}" ng-click="ctrl.seats.select({rang:key, row:row, seat: seat}, ctrl.selectedCount)">
+                  {{seat.caption}}
+              </td>
+          </tr>
+      </table> &nbsp;&nbsp;&nbsp;
+     <!--  <pre>{{ctrl.seats.map | json : 2}}</pre> -->
+  </div>
+</html>

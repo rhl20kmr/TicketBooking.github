@@ -1,0 +1,24 @@
+table {
+    border: 1px solid black;
+    padding: 0.5em;
+}
+
+td {
+    padding: 1em;
+    border: 2px solid gray;
+}
+
+td:hover {
+    cursor: default;
+    /* background-color: gray; */
+}
+
+.active {
+    border: 2px solid red;
+    border-radius: 5px; 
+	background-color: red;
+}
+
+.booked {
+    background-color: lightgray;
+}
